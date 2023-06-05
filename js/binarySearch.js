@@ -1,4 +1,4 @@
-const recursiveBinarySearch = (list, lo, hi, searchValue)=>{
+	const recursiveBinarySearch = (list, lo, hi, searchValue)=>{
     if(lo==hi){
         return false
     }
