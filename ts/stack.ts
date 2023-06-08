@@ -1,6 +1,5 @@
 type QNode<T> = {
     value: T,
-    next?: QNode<T>,
     previous?: QNode<T>
 }
 
@@ -33,20 +32,30 @@ class Stack<T>{
         if(!this.tail){
             return undefined;
         }
-        this.length--;
+        this.length = Math.max(0, this.length--);
         const tail = this.tail;
         this.tail = this.tail.previous
         return tail.value;
     }
+
+    peek():T|undefined{
+        return this.tail?.value;
+    }
 }
 
 const myStack = new Stack<number>;
-console.log(myStack)
-console.log(myStack.push(2))
-console.log(myStack)
-console.log(myStack.push(3))
-console.log(myStack)
-console.log(myStack.push(4))
-console.log(myStack)
-console.log(myStack.pop())
-console.log(myStack)
+console.log(myStack);
+console.log(myStack.push(2));
+console.log(myStack);
+console.log(myStack.push(3));
+console.log(myStack);
+console.log(myStack.push(4));
+console.log(myStack);
+console.log(myStack.pop());
+console.log(myStack);
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());

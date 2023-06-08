@@ -49,3 +49,8 @@ console.log(myqueue.enqueue(11));
 console.log(myqueue.length);
 console.log(myqueue.peek());
 console.log(myqueue);
+console.log(myqueue.deque());
+console.log(myqueue.deque());
+console.log(myqueue.deque());
+console.log(myqueue.deque());
+console.log(myqueue.deque());

@@ -18,10 +18,14 @@ var Stack = /** @class */ (function () {
         if (!this.tail) {
             return undefined;
         }
-        this.length--;
+        this.length = Math.max(0, this.length--);
         var tail = this.tail;
         this.tail = this.tail.previous;
         return tail.value;
+    };
+    Stack.prototype.peek = function () {
+        var _a;
+        return (_a = this.tail) === null || _a === void 0 ? void 0 : _a.value;
     };
     return Stack;
 }());
@@ -35,3 +39,9 @@ console.log(myStack.push(4));
 console.log(myStack);
 console.log(myStack.pop());
 console.log(myStack);
+console.log(myStack.peek());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
+console.log(myStack.pop());
