@@ -63,11 +63,12 @@ const solveMaze = (maze:string[], wall:string, start:Point, end:Point): Point[]=
 
 const maze = ["#####E##",
               "##    ##",
+              "## # ###",
               "##S#####"];
 console.log(maze);
 console.log(maze[0][7]);
-console.log(maze[2][2]);
-const start = {row: 2, col:2}
+console.log(maze[3][2]);
+const start = {row: 3, col:2}
 const end = {row: 0, col:5}
 const path = solveMaze(maze, "#", start, end)
 console.log(path);
