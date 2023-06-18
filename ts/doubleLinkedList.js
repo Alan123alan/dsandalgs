@@ -49,6 +49,27 @@ var DoubleLinkedList = /** @class */ (function () {
             node.prev.next = node;
         }
     };
+    DoubleLinkedList.prototype.removeAt = function (index) {
+        var _a;
+        var currNode = this.getAt(index);
+        if (!currNode) {
+            return undefined;
+        }
+        this.length--;
+        if (this.length == 0) {
+            var out = (_a = this.head) === null || _a === void 0 ? void 0 : _a.value;
+            this.head = this.tail = undefined;
+            return out;
+        }
+        if (currNode.prev) {
+            currNode.prev.next = currNode.next;
+        }
+        if (currNode.next) {
+            currNode.next.prev = currNode.prev;
+        }
+        currNode.prev = currNode.next = undefined;
+        return currNode.value;
+    };
     DoubleLinkedList.prototype.remove = function (item) {
         var _a;
         var curr = this.head;
@@ -112,4 +133,6 @@ myDoubleLinkedList.remove(1);
 myDoubleLinkedList.remove(3);
 console.log(myDoubleLinkedList);
 myDoubleLinkedList.insertAt(99, 1);
+console.log(myDoubleLinkedList);
+myDoubleLinkedList.removeAt(1);
 console.log(myDoubleLinkedList);

@@ -62,6 +62,27 @@ class DoubleLinkedList<T>{
         }
     }
 
+    removeAt(index:number):T|undefined{
+        let currNode = this.getAt(index); 
+        if(!currNode){
+            return undefined;
+        }
+        this.length--;
+        if(this.length == 0){
+            const out = this.head?.value;
+            this.head = this.tail = undefined;
+            return out;
+        }
+        if(currNode.prev){
+            currNode.prev.next = currNode.next;
+        }
+        if(currNode.next){
+            currNode.next.prev = currNode.prev;
+        }
+        currNode.prev = currNode.next = undefined;
+        return currNode.value;
+    }
+
     remove(item:T):T|undefined{
         let curr = this.head;
         for(let i = 0;curr && i < this.length; i++){
@@ -131,4 +152,6 @@ myDoubleLinkedList.remove(1);
 myDoubleLinkedList.remove(3);
 console.log(myDoubleLinkedList);
 myDoubleLinkedList.insertAt(99,1);
+console.log(myDoubleLinkedList);
+myDoubleLinkedList.removeAt(1);
 console.log(myDoubleLinkedList);
